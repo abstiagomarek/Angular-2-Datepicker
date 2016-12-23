@@ -174,6 +174,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
 
       .datepicker__calendar__nav__header {
         width: 11em;
+        cursor: pointer;
         margin: 0 1em;
         text-align: center;
       }
@@ -291,9 +292,9 @@ import { DateFormatFunction, ValidationResult } from './validation';
               </g>
             </svg>
           </div>
-          <div class="datepicker__calendar__nav__header">
+          <div (click)="showMonthsDiv()" class="datepicker__calendar__nav__header">
             <span>{{ currentMonth }}</span>
-            <span (click)="showYearDiv()">{{ currentYear }}</span>
+            <span>{{ currentYear }}</span>
           </div>
           <div class="datepicker__calendar__nav__arrow" (click)="onArrowClick('right')" >
             <svg class="datepicker__calendar__nav__chevron" x="0px" y="0px" viewBox="0 0 50 50">
@@ -333,6 +334,38 @@ import { DateFormatFunction, ValidationResult } from './validation';
           </div>
           <div class="datepicker__calendar__cancel" (click)="onCancel()" >Cancel</div>
         </div>
+        
+        
+        
+        <div *ngIf="showMonths" class="datepicker__calendar__inner">
+        
+          <div class="datepicker__calendar__nav">
+            
+            <div (click)="showYearDiv()" class="datepicker__calendar__nav__header__inner__year">
+                <span>{{ currentYear }}</span>
+            </div>
+            
+          </div>
+          
+          <div class="datepicker__calendar__content">
+            <div class="grid" [@calendarAnimation]="animate" style="height: 212px;background: red;" (click)="showMonthsDiv()">
+              <!--<div class="col-1-5" *ngFor="let year of calendarYears">
+                <div class="year"
+                 [ngStyle]="{ 'background-color': getYearBackgroundColor(year),
+                      'color':  isHoveredYear(year) ? accentColor : getYearFontColor(year) }"
+                 (mouseenter)="hoveredYear = year"
+                 (mouseleave)="hoveredYear = null"
+                 (click)="selectYear(year)"><span>{{year}}</span></div>
+              </div>-->
+            </div>
+            <div class="datepicker__calendar__cancel" (click)="onCancel()">
+              Cancel
+            </div>
+          </div>
+          
+        </div>
+        
+        
         
         <div *ngIf="showYear" class="datepicker__calendar__inner">
         
@@ -390,6 +423,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
           </div>
           
         </div>
+        
       </div>
     </div>
     `
@@ -439,6 +473,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
   yearControl: FormControl;
   //Show div for years
   showYear: boolean = false;
+  showMonths: boolean = false;
   //list of years
   calendarYears: Array<number>;
   selectedYearRange: string;
@@ -610,6 +645,20 @@ export class DatepickerComponent implements OnInit, OnChanges {
           this.selectedYearRange = eachRange;
         }
       });
+  }
+
+  /**
+   * Show or hide the list of Months
+   */
+  showMonthsDiv() {
+    this.showMonths = !this.showMonths;
+    /*Object.keys(this.calendarYearRange)
+      .map((eachRange) => {
+        if(this.calendarYearRange[eachRange].indexOf(this.currentYear) >= 0) {
+          this.calendarYears = this.calendarYearRange[eachRange];
+          this.selectedYearRange = eachRange;
+        }
+      });*/
   }
 
   // -------------------------------------------------------------------------------- //
