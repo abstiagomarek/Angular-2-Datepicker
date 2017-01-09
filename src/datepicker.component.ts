@@ -360,7 +360,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
               </span>
             </div>
           </div>
-          <div class="datepicker__calendar__cancel" (click)="onCancel()" >Cancel</div>
+          <div class="datepicker__calendar__cancel" (click)="onCancel()" >Cancelar</div>
         </div>
 
         <div *ngIf="showMonths" class="datepicker__calendar__inner">
@@ -416,7 +416,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
 
             </div>
             <div class="datepicker__calendar__cancel" (click)="onCancel()">
-              Cancel
+              Cancelar
             </div>
           </div>
 
