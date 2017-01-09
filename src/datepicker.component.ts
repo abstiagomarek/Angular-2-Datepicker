@@ -53,7 +53,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
               -ms-user-select: none;
                   user-select: none;
       }
-      
+
       .datepicker__calendar__inner {
         position: absolute;
         overflow: hidden;
@@ -193,13 +193,13 @@ import { DateFormatFunction, ValidationResult } from './validation';
         font-size: 1em;
         transition: 0.32s;
       }
-      
+
       .datepicker__calendar__nav__header__inner__year {
         width: 11em;
         margin: 0 1em;
         text-align: center;
       }
-      
+
       .datepicker__calendar__nav__header__inner__year.pointer {
         cursor: pointer;
       }
@@ -222,38 +222,38 @@ import { DateFormatFunction, ValidationResult } from './validation';
         padding: .2em .6em;
         font-size: 14px;
       }
-                 
+
       .grid {
         background: white;
         margin: 0 0 20px 0;
         padding-right: 0;
       }
-        
+
       .grid:after {
         content: "";
         display: table;
         clear: both;
       }
-      
+
       .grid:last-of-type {
         padding-right: 0;
       }
-      
+
       [class*='col-'] {
         float: left;
         padding-right: 20px;
       }
-      
+
       .col-1-5 {
         width: calc(20% - 10px);
         padding: 5px;
       }
-      
+
       .col-1-4 {
         width: calc(25% - 10px);
         padding: 5px;
       }
-      
+
       .col-1-5 .year {
         cursor: pointer;
         border: 0;
@@ -266,7 +266,7 @@ import { DateFormatFunction, ValidationResult } from './validation';
         -webkit-transition: 0.37s;
         transition: 0.37s;
       }
-      
+
       .col-1-4 .month {
         cursor: pointer;
         border: 0;
@@ -279,13 +279,13 @@ import { DateFormatFunction, ValidationResult } from './validation';
         -webkit-transition: 0.37s;
         transition: 0.37s;
       }
-      
+
       .col-1-5 .year span {
         display:table-cell;
         vertical-align: middle;
         text-align: center;
       }
-      
+
       .col-1-4 .month span {
         display:table-cell;
         vertical-align: middle;
@@ -362,11 +362,11 @@ import { DateFormatFunction, ValidationResult } from './validation';
           </div>
           <div class="datepicker__calendar__cancel" (click)="onCancel()" >Cancel</div>
         </div>
-                
+
         <div *ngIf="showMonths" class="datepicker__calendar__inner">
-        
+
           <div class="datepicker__calendar__nav">
-            
+
             <div class="datepicker__calendar__nav__arrow" (click)="changeYear('left')" >
               <svg class="datepicker__calendar__nav__chevron" x="0px" y="0px" viewBox="0 0 50 50">
                 <g>
@@ -381,11 +381,11 @@ import { DateFormatFunction, ValidationResult } from './validation';
                 </g>
               </svg>
             </div>
-                        
+
             <div (click)="showYearDiv()" class="datepicker__calendar__nav__header__inner__year pointer">
                 <span>{{ currentYear }}</span>
             </div>
-            
+
             <div class="datepicker__calendar__nav__arrow" (click)="changeYear('right')" >
               <svg class="datepicker__calendar__nav__chevron" x="0px" y="0px" viewBox="0 0 50 50">
                 <g>
@@ -399,10 +399,10 @@ import { DateFormatFunction, ValidationResult } from './validation';
                       l2.3,2.3c0.5,0.5,1.2,1.2,1.7,1.7L14.8,49z"/>
                 </g>
               </svg>
-            </div>          
-            
+            </div>
+
           </div>
-          
+
           <div class="datepicker__calendar__content">
             <div class="grid" [@calendarAnimation]="animate">
             <div class="col-1-4" *ngFor="let month of monthsList">
@@ -419,11 +419,11 @@ import { DateFormatFunction, ValidationResult } from './validation';
               Cancel
             </div>
           </div>
-          
+
         </div>
-        
+
         <div *ngIf="showYear" class="datepicker__calendar__inner">
-        
+
           <div class="datepicker__calendar__nav">
             <div class="datepicker__calendar__nav__arrow" (click)="changeYearList('left')" >
               <svg class="datepicker__calendar__nav__chevron" x="0px" y="0px" viewBox="0 0 50 50">
@@ -439,11 +439,11 @@ import { DateFormatFunction, ValidationResult } from './validation';
                 </g>
               </svg>
             </div>
-            
+
             <div class="datepicker__calendar__nav__header__inner__year">
                 <span>{{ selectedYearRange }}</span>
             </div>
-            
+
             <div class="datepicker__calendar__nav__arrow" (click)="changeYearList('right')" >
               <svg class="datepicker__calendar__nav__chevron" x="0px" y="0px" viewBox="0 0 50 50">
                 <g>
@@ -458,9 +458,9 @@ import { DateFormatFunction, ValidationResult } from './validation';
                 </g>
               </svg>
             </div>
-            
+
           </div>
-          
+
           <div class="datepicker__calendar__content">
             <div class="grid" [@calendarAnimation]="animate">
               <div class="col-1-5" *ngFor="let year of calendarYears">
@@ -476,9 +476,9 @@ import { DateFormatFunction, ValidationResult } from './validation';
               Cancel
             </div>
           </div>
-          
+
         </div>
-        
+
       </div>
     </div>
     `
@@ -563,22 +563,22 @@ export class DatepickerComponent implements OnInit, OnChanges {
       '2090-2109': [2090, 2091, 2092, 2093, 2094, 2095, 2096, 2097, 2098, 2099, 2100, 2101, 2102, 2103, 2104, 2105, 2106, 2107, 2108, 2109]
     };
     this.months = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July',
-      'August', 'September', 'October', 'November', ' December'
+      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+      'Agosto', 'Setembro', 'Outubro', 'Novembro', ' Dezembro'
     ];
     this.monthsList = [
       {name: 'Jan', value: 0},
-      {name: 'Feb', value: 1},
+      {name: 'Fev', value: 1},
       {name: 'Mar', value: 2},
-      {name: 'Apr', value: 3},
-      {name: 'May', value: 4},
+      {name: 'Abr', value: 3},
+      {name: 'Mai', value: 4},
       {name: 'Jun', value: 5},
       {name: 'Jul', value: 6},
-      {name: 'Aug', value: 7},
-      {name: 'Sep', value: 8},
-      {name: 'Oct', value: 9},
+      {name: 'Ago', value: 7},
+      {name: 'Set', value: 8},
+      {name: 'Out', value: 9},
       {name: 'Nov', value: 10},
-      {name: 'Dec', value: 11}
+      {name: 'Dez', value: 11}
     ];
     // listeners
     this.clickListener = renderer.listenGlobal(
@@ -599,7 +599,7 @@ export class DatepickerComponent implements OnInit, OnChanges {
     if(this.rangeStart > this.rangeEnd) {
       throw new Error(`
       Error => [rangeStart] > [rangeEnd]
-       
+
       rangeStart cannot be greater than rangeEnd`)
     }
     this.syncVisualsWithDate();
